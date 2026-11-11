@@ -1,0 +1,126 @@
+@layer reset, base, layout, components, utilities;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+@layer base {
+  :root {
+    --color-text: #191919;
+    --color-surface: #ffffff;
+    --color-muted: #f7f7f7;
+    --color-accent: #8c1d40;
+    --color-gold: #ffc627;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --radius: .5rem;
+  }
+
+  body {
+    color: var(--color-text);
+    background: var(--color-surface);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+}
+
+@layer layout {
+  .wrapper {
+    /* Add a flexible logical inline-size and margin-inline auto. */
+  }
+
+  .section {
+    /* Add fluid block spacing. */
+  }
+
+  .hero-layout {
+    /* Add a responsive layout pattern. */
+  }
+
+  .guide-grid {
+    /* Build an intrinsic grid using repeat(), auto-fit/auto-fill, and minmax(). */
+  }
+
+  .feature-shell {
+    /* Try this component in different container widths. */
+  }
+}
+
+@layer components {
+  .site-header,
+  .site-footer {
+    background: var(--color-muted);
+    padding-block: var(--space-4);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: 0;
+    list-style: none;
+  }
+
+  .hero {
+    background: var(--color-muted);
+  }
+
+  .guide-card,
+  .trip-card,
+  .feature-card {
+    border: 1px solid #d0d0d0;
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    background: var(--color-surface);
+  }
+
+  .button {
+    display: inline-block;
+    padding-block: .65rem;
+    padding-inline: 1rem;
+    border-radius: var(--radius);
+    background: var(--color-accent);
+    color: var(--color-surface);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .feature-card {
+    /* Add container-type and a container query for the body layout. */
+  }
+
+  .feature-card__media {
+    min-block-size: 10rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-gold));
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+  }
+}
