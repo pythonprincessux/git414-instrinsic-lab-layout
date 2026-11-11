@@ -40,23 +40,44 @@
 
 @layer layout {
   .wrapper {
-    /* Add a flexible logical inline-size and margin-inline auto. */
+    inline-size: min(calc(100% - 2rem), 72rem);
+    margin-inline: auto;
   }
 
-  .section {
-    /* Add fluid block spacing. */
+  .section,
+  .hero {
+    padding-block: clamp(2rem, 5vw, 4rem);
   }
 
   .hero-layout {
-    /* Add a responsive layout pattern. */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: start;
   }
 
   .guide-grid {
-    /* Build an intrinsic grid using repeat(), auto-fit/auto-fill, and minmax(). */
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-6);
+  }
+
+  .guide-grid > * {
+    min-inline-size: 0;
   }
 
   .feature-shell {
-    /* Try this component in different container widths. */
+    min-inline-size: 0;
+  }
+
+  /* Two columns need room for the heading, route card, and gap.
+     Verify this threshold with the actual content during testing. */
+  @media (min-width: 56rem) {
+    .hero-layout {
+      grid-template-columns:
+        minmax(0, 2fr) minmax(16rem, 1fr);
+    }
   }
 }
 
