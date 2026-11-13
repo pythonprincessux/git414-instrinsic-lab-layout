@@ -145,3 +145,47 @@
     scroll-behavior: auto;
   }
 }
+
+/* Container-query practice */
+@layer components {
+  .feature-shell {
+    container-type: inline-size;
+    container-name: feature;
+    margin-block: var(--space-6);
+  }
+
+  .feature-shell--narrow {
+    inline-size: 100%;
+    max-inline-size: 22rem;
+  }
+
+  .feature-shell--wide {
+    inline-size: 100%;
+    max-inline-size: 60rem;
+  }
+
+  /* Default and fallback: media above text */
+  .feature-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .feature-card__body {
+    min-inline-size: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .feature-card__body > :first-child {
+    margin-block-start: 0;
+  }
+
+  /* Query the parent, then change the card inside it */
+  @container feature (min-width: 36rem) {
+    .feature-card {
+      grid-template-columns:
+        minmax(0, 1fr) minmax(0, 2fr);
+      align-items: center;
+    }
+  }
+}

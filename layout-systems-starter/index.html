@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sonoran Field Notes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <header class="site-header">
     <div class="wrapper">
@@ -27,7 +29,8 @@
         <div>
           <p class="eyebrow">Field guide collection</p>
           <h1>Responsive layout practice for content that changes shape.</h1>
-          <p>Use this sample page to test intrinsic grids, flexible wrappers, logical properties, and container queries.</p>
+          <p>Use this sample page to test intrinsic grids, flexible wrappers, logical properties, and container queries.
+          </p>
         </div>
         <aside class="trip-card">
           <h2>Weekend Route</h2>
@@ -40,45 +43,73 @@
     <section class="section">
       <div class="wrapper">
         <div class="section-heading">
-          <p class="eyebrow">Popular guides</p>
-          <h2>Cards should wrap when the content needs room.</h2>
+          <div id="guides" class="guide-grid">
+            <h2>Cards should wrap when the content needs room.</h2>
+          </div>
+          <div class="guide-grid">
+            <article class="guide-card">
+              <h3>Heat Safety for New Hikers</h3>
+              <p>Plan water, shade, start time, and route length before you leave.</p>
+              <a href="#">Read guide</a>
+            </article>
+            <article class="guide-card">
+              <h3>Accessible Trailhead Checklist</h3>
+              <p>Check parking, grade, restroom access, seating, signage, and cell coverage.</p>
+              <a href="#">Read guide</a>
+            </article>
+            <article class="guide-card">
+              <h3>Desert Wildlife Viewing Etiquette</h3>
+              <p>Observe from a distance, avoid feeding, and protect habitats.</p>
+              <a href="#">Read guide</a>
+            </article>
+            <article class="guide-card">
+              <h3>Monsoon Weather Planning</h3>
+              <p>Understand storm timing, flash flood risk, and backup plans.</p>
+              <a href="#">Read guide</a>
+            </article>
+          </div>
         </div>
-        <div class="guide-grid">
-          <article class="guide-card">
-            <h3>Heat Safety for New Hikers</h3>
-            <p>Plan water, shade, start time, and route length before you leave.</p>
-            <a href="#">Read guide</a>
-          </article>
-          <article class="guide-card">
-            <h3>Accessible Trailhead Checklist</h3>
-            <p>Check parking, grade, restroom access, seating, signage, and cell coverage.</p>
-            <a href="#">Read guide</a>
-          </article>
-          <article class="guide-card">
-            <h3>Desert Wildlife Viewing Etiquette</h3>
-            <p>Observe from a distance, avoid feeding, and protect habitats.</p>
-            <a href="#">Read guide</a>
-          </article>
-          <article class="guide-card">
-            <h3>Monsoon Weather Planning</h3>
-            <p>Understand storm timing, flash flood risk, and backup plans.</p>
-            <a href="#">Read guide</a>
-          </article>
-        </div>
-      </div>
     </section>
 
     <section class="section">
-      <div class="wrapper feature-shell">
-        <article class="feature-card">
-          <div class="feature-card__media" aria-hidden="true"></div>
-          <div class="feature-card__body">
-            <p class="eyebrow">Container query candidate</p>
-            <h2>Reusable feature card</h2>
-            <p>This card should work in a narrow sidebar and a wide content area without depending only on the viewport width.</p>
-            <a class="button" href="#">Test component</a>
-          </div>
-        </article>
+      <div class="wrapper">
+        <h2>One component, two container widths</h2>
+        <p>
+          Both cards use the same styles. Their parent containers
+          determine which layout appears.
+        </p>
+
+        <h3>Narrow parent</h3>
+        <div class="feature-shell feature-shell--narrow">
+          <article class="feature-card">
+            <div class="feature-card__media" aria-hidden="true"></div>
+            <div class="feature-card__body">
+              <p class="eyebrow">Planning resource</p>
+              <h2>Weekend Route</h2>
+              <p>
+                Three stops, two trailheads, one printable
+                planning checklist.
+              </p>
+              <a class="button" href="#guides">Explore the guides</a>
+            </div>
+          </article>
+        </div>
+
+        <h3>Wide parent</h3>
+        <div class="feature-shell feature-shell--wide">
+          <article class="feature-card">
+            <div class="feature-card__media" aria-hidden="true"></div>
+            <div class="feature-card__body">
+              <p class="eyebrow">Planning resource</p>
+              <h2>Weekend Route</h2>
+              <p>
+                Three stops, two trailheads, one printable
+                planning checklist.
+              </p>
+              <a class="button" href="#guides">Explore the guides</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
@@ -89,4 +120,5 @@
     </div>
   </footer>
 </body>
+
 </html>

@@ -1,60 +1,32 @@
-# Layout Systems Starter
-
-Use this small page for Module 3 practice if you do not want to use your capstone yet.
-
-## Files
-
-- `index.html`: sample content with layout patterns.
-- `styles.css`: starter CSS with tokens, layers, and layout prompts.
-
-## Practice goal
-
-Build a responsive layout system:
-
-- flexible wrapper
-- intrinsic card grid
-- content-driven breakpoint
-- logical properties
-- container query component
-- user-preference or feature query
-
-Keep notes about what changed and why.
-
-## Completed Practice
+## Container Query Practice
 Kiara McRae | GIT 414
 
-### Intrinsic Layout Pattern
-The guide cards use repeat(auto-fit, minmax(min(100%, 16rem), 1fr)).
-The grid creates as many columns as the container can accommodate on the page,
-while allowing a card to shrink below 16rem when its container is
-narrower. Cards wrap without separate column-count media queries.
+### Component and Query Container
+This week, I decided to adapt the reusable feature card and placed it in two parent
+containers with maximum widths of 22rem and 60rem.
 
-The wrapper uses a logical inline sizing and automatic inline margins
-to keep content centered, preserve the side gutters, and stop growing at 72rem.
-Section and hero spacing use clamp(2rem, 5vw, 4rem).
+Each `.feature-shell` uses `container-type: inline-size` and the
+container name `feature`. The card starts with a single-column layout.
+At a container width of 36rem or greater, a container query changes
+the card to two columns, placing the decorative gradient beside
+the text.
 
-### Content-Based Breakpoint
-The hero changes from one column to two at 56rem. Below this width,
-stacking gives the long heading and Weekend Route card more room.
-Above it, the heading and route card can share a row.
+### Why a Container Query
+I chose this honestly because i thought it would be cool to show a side by side display. The same component appears in different-width parents within the
+same viewport. A viewport-only media query would not distinguish
+between those available widths. The container query lets each card
+adapt to the space its own parent provides.
 
-In devtools, I checked 880px and 912px on either side of the breakpoint. The hero
-was stacked at 880px and displayed beside the route card at 912px.
-The card grid adapts independently of this hero breakpoint.
+### Fallback
+Without container-query support, the query is ignored and both cards
+retain the usable single-column layout. The heading, description,
+and action link remain available.
 
-### Browser Checks
-I tested the starter locally in Chrome:
-- 375px: guide cards displayed in one column.
-- 768px: guide cards displayed in two columns.
-- 1280px: all four guide cards displayed in one row.
-- 880px and 912px: the hero changed arrangements across the breakpoint.
-- 200% browser zoom: the visible Weekend Route text and button remained
-  inside the card without overlap.
-
-These observations describe the tested views, not a complete
-accessibility or cross-browser audit.
+### Testing
+I checked both parent widths in Chrome within the same browser window.
+The narrow card stacked its gradient above the text. The wide card
+displayed the gradient beside the text.
 
 ### AI Disclosure
-For this week's assignment, I used ChatGPT to explain the syntax and 
-fluid spacing I applied all of the changes myself and
-tested the page in Chrome in devtools. 
+I used ChatGPT to help troubleshoot syntax I applied the changes and checked
+both component layouts in Chrome. I verified all broswer behavior through the live server launched through VS Code.
